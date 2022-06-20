@@ -16,7 +16,7 @@ export const Post = ({ post }) => {
 
 	return (
 		<PostWrap>
-			<PostTitle to={`/posts/${_id}`}>{title}</PostTitle>
+			<PostTitle to={`/my-blog/posts/${_id}`}>{title}</PostTitle>
 			<PostDescription>{description}</PostDescription>
 			<PostDescription>{_id}</PostDescription>
 			<FooterPostWrap>

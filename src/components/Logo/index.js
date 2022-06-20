@@ -3,21 +3,25 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const LogoLink = styled.h1`
-	cursor: pointer;
+	padding: 5px;
+	border-radius: 0.2em;
+
 	color: black;
+	background: white;
+
+	cursor: pointer;
 `;
 
 export const Logo = () => {
 	const navigate = useNavigate();
 	const handleClick = () => {
-		navigate("../home");
+		navigate("./home");
 	};
 
 	return (
 		<div>
 			<LogoLink
 				onClick={handleClick}
-				style={{ background: "white", borderRadius: "0.2em", padding: '5px 5px' }}
 			>
 				myBlog
 			</LogoLink>

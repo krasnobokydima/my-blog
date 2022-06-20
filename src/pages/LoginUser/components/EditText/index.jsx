@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux/es/exports.js";
 import ReactLoading from "react-loading";
 
@@ -10,7 +10,9 @@ export const EditText = ({ label, userKey, userData }) => {
 	const [isUpdate, setIsUpdate] = useState(false);
 
 	useEffect(() => {
-		setIsUpdate(false)
+		if (status === 'resolved') {
+			setIsUpdate(false)
+		}
 	}, [status])
 
 	const changeValue = ({ target }) => {
@@ -18,9 +20,6 @@ export const EditText = ({ label, userKey, userData }) => {
 		setUpdateUser((prev) => ({ ...prev, [userKey]: target.value }));
 	};
 
-	useMemo(() => {
-		
-	}, [])
 
 	return (
 		<Container>

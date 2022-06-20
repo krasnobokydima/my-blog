@@ -5,7 +5,16 @@ import { CustomLoader } from "../../components/Loader";
 import { PostComments } from "../../components/PostComments";
 import { formatData } from "../../store/getDate";
 
-import { PostWrap } from "./style";
+import { AiOutlineUser } from "react-icons/ai";
+
+import {
+	PostWrap,
+	PostTitle,
+	PostData,
+	PostAuthor,
+	PostDescription,
+	CommentsContainer,
+} from "./style";
 
 export const CurrentPost = () => {
 	const [data, setData] = useState(null);
@@ -24,19 +33,26 @@ export const CurrentPost = () => {
 		return <CustomLoader />;
 	}
 
-	const { title, dateCreated, description, fullText, postedBy } = data;
+	const { title, dateCreated, description, fullText, postedBy, likes } = data;
+
+	console.log(data, data.likes.length, data.postedBy);
 
 	return (
 		<PostWrap>
-			<h2>Title: {title}</h2>
-			<p>created date: {formatData(dateCreated)}</p>
-			<p>description: {description}</p>
-			<p>fullText: {fullText}</p>
-			<p>Posted by: {postedBy}</p>
-			<div style={{ marginTop: "20px" }}>
-				<h3>comments:</h3>
-				<PostComments id={_id}/>
+			<PostTitle>Title: {title}</PostTitle>
+			<PostDescription>description: {description}</PostDescription>
+			<PostData>fullText: {fullText}</PostData>
+			<div style={{display: 'flex', justifyContent: 'space-between', margin: '5px 0'}}>
+				<PostAuthor>Posted by: {postedBy ? postedBy : "anonim"}</PostAuthor>
+				<PostData>created date: {formatData(dateCreated)}</PostData>
 			</div>
+			<div>
+				<p>Likes: {likes.length}</p>
+			</div>
+			<CommentsContainer>
+				<h3>comments:</h3>
+				<PostComments id={_id} />
+			</CommentsContainer>
 		</PostWrap>
 	);
 };

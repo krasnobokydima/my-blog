@@ -30,6 +30,7 @@ export const LoginUser = () => {
 	useEffect(() => {
 		dispatch(getUserInfo());
 	}, [dispatch]);
+	
 	useEffect(() => {
 		setUpdateUser(user);
 	}, [user]);
