@@ -43,7 +43,7 @@ export const Login = () => {
 		const token =  JSON.stringify(response.token).replace(/["]/gi, '')
 		localStorage.setItem("user-token", token);
 
-		navigate('../home')
+		navigate('../my-blog/home')
 	};
 
 	const onCreateAccount = () => navigate("../create-account");

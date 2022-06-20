@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import React from "react";
 
 import Layout from "./components/Layout";
@@ -19,7 +19,7 @@ import { RequireAuth } from "./auth/RequireAuth";
 
 export const App = () => {
 	return (
-		<BrowserRouter>
+		<HashRouter>
 			<Routes>
 				<Route path="/my-blog/" element={<Layout />}>
 					<Route path="home" element={<HomePage />} />
@@ -45,6 +45,6 @@ export const App = () => {
 				<Route path="create-account" element={<CreateAccount />} />
 				<Route path="login" element={<Login />} />
 			</Routes>
-		</BrowserRouter>
+		</HashRouter>
 	);
 };
