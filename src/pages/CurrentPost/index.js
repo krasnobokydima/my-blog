@@ -35,8 +35,6 @@ export const CurrentPost = () => {
 
 	const { title, dateCreated, description, fullText, postedBy, likes } = data;
 
-	console.log(data, data.likes.length, data.postedBy);
-
 	return (
 		<PostWrap>
 			<PostTitle>Title: {title}</PostTitle>
