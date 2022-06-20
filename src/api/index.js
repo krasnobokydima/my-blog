@@ -21,7 +21,7 @@ const getConfig = () => {
 export const getDataFromServer = async (dataType, endPoint = "") => {
 	const URL = API_KEY + dataType + endPoint;
 
-	let response = await axios.get(URL, getConfig());
+	let response = await axios.get(URL);
 
 	if (response.status > 399) {
 		return "Error";

@@ -16,7 +16,7 @@ export const App = () => {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={<Layout />}>
+				<Route path="/my-blog/" element={<Layout />}>
 					<Route path="posts" element={<Posts />} />
 					<Route path="posts/:_id" element={<CurrentPost />} />
 					<Route path="users" element={<Users />} />

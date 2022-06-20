@@ -15,20 +15,16 @@ export const Login = () => {
 	const [submitError, setSubmitError] = useState(false);
 
 	const navigate = useNavigate();
-	// const { login } = useAuth() //
 
-	//реакция на изменение
 	const handleChange = ({ target }) => {
 		setForm((prev) => ({ ...prev, [target.name]: target.value }));
 	};
 
-	//реакция на потерю фокуса
 	const handleBlur = ({ target }) => {
 		const { name, value } = target;
 		setFormError((prev) => ({ ...prev, [name]: isValidLable(name, value) }));
 	};
 
-	//реакция на фокус
 	const handleFocus = ({ target }) =>
 		setFormError((prev) => ({ ...prev, [target.name]: true }));
 
@@ -47,7 +43,6 @@ export const Login = () => {
 		const token =  JSON.stringify(response.token).replace(/["]/gi, '')
 		localStorage.setItem("user-token", token);
 
-		// login(() => )
 		navigate('../home')
 	};
 
